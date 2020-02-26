@@ -1,0 +1,16 @@
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: solr-zookeeper
+  namespace: stateful-set
+  labels:
+    app: zookeeper
+    component: server
+    release: solr
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: zookeeper
+      component: server
+      release: solr
